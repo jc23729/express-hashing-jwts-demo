@@ -37,8 +37,9 @@ router.post('/register', async (req, res, next) => {
 });
 
 router.post('/login', async (req, res, next) => {
-  try {
+  try { //extract username and password 
     const { username, password } = req.body;
+    //hash password and save to db
     if (!username || !password) {
       throw new ExpressError("Username and password required", 400);
     }
